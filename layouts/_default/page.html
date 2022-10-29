@@ -12,17 +12,15 @@
             col-xs-12
             post-container">
             {{ if eq (.Param "multilingual") true }}
-                {{ partial "multilingual-sel.html" . }}
-
+                {{ partial "multilingual-sel.html" . }} 
+                <!-- English Version -->
+                <div class="en post-container">
+                    {{ .Content }}
+                </div>
                 <!-- Chinese Version -->
                 <div class="zh post-container">
                     {{$file :=  "/about/index-zh.md"}}
                     {{ $file | readFile | markdownify}}
-                </div>
-            
-                <!-- English Version -->
-                <div class="en post-container">
-                    {{ .Content }}
                 </div>
             {{ else }}
                 {{ .Content }}
